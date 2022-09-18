@@ -19,6 +19,7 @@
     "@headlessui/react": "^1.6.6",
     "@mantine/core": "^5.1.6",
     "@mantine/dates": "^5.1.6",
+    "@mantine/dropzone": "^5.3.3",
     "@mantine/form": "^5.1.6",
     "@mantine/hooks": "^5.1.6",
     "@mantine/modals": "^5.1.6",

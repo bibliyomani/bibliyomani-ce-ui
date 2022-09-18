@@ -1,104 +1,105 @@
-const path = require("path");
-const webpack = require("webpack");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const port = process.env.PORT || 3000;
-const isDevelopment = process.env.NODE_ENV !== "production";
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  mode: isDevelopment ? "development" : "production",
-  entry: "./src/index.js",
+  mode: isDevelopment ? 'development' : 'production',
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.[fullhash].js",
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.[fullhash].js',
   },
 
   resolve: {
     alias: {
-      root: path.resolve(__dirname, "src/"),
-      i18n: path.resolve(__dirname, "src/i18n"),
-      components: path.resolve(__dirname, "src/components")
+      root: path.resolve(__dirname, 'src/'),
+      i18n: path.resolve(__dirname, 'src/i18n'),
+      components: path.resolve(__dirname, 'src/components'),
+      pages: path.resolve(__dirname, 'src/pages'),
     },
-    extensions: ["", ".js", ".jsx"],
+    extensions: ['', '.js', '.jsx'],
   },
   module: {
     rules: [
       {
         test: /\.(woff|woff2|ttf)$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
         },
       },
       {
         test: /\.(png|jpg|jpeg)$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
         },
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
               [
-                "@babel/preset-env",
+                '@babel/preset-env',
                 {
                   loose: false,
                   shippedProposals: true,
                 },
               ],
               [
-                "@babel/preset-react",
+                '@babel/preset-react',
                 {
-                  runtime: "automatic",
+                  runtime: 'automatic',
                 },
               ],
             ],
             plugins: [
-              "@babel/plugin-proposal-object-rest-spread",
+              '@babel/plugin-proposal-object-rest-spread',
               [
-                "@babel/plugin-proposal-private-property-in-object",
+                '@babel/plugin-proposal-private-property-in-object',
                 {
                   loose: false,
                 },
               ],
               [
-                "@babel/plugin-proposal-class-properties",
+                '@babel/plugin-proposal-class-properties',
                 {
                   loose: false,
                 },
               ],
               [
-                "@babel/plugin-proposal-private-methods",
+                '@babel/plugin-proposal-private-methods',
                 {
                   loose: false,
                 },
               ],
-              isDevelopment && require.resolve("react-refresh/babel"),
+              isDevelopment && require.resolve('react-refresh/babel'),
             ].filter(Boolean),
           },
         },
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
       },
       {
         test: /\.svg$/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
           },
           {
-            loader: "react-svg-loader",
+            loader: 'react-svg-loader',
             options: {
               jsx: true, // true outputs JSX tags
             },
@@ -114,12 +115,12 @@ module.exports = {
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: './src/index.html',
     }),
   ].filter(Boolean),
 
   devServer: {
-    host: "localhost",
+    host: 'localhost',
     port: port,
     historyApiFallback: true,
     open: true,

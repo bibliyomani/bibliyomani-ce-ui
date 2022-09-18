@@ -1,1 +1,8 @@
-{}
+{
+    "upload": "Upload",
+    "arr": "All Rights Reserved.",
+    "about": "About",
+    "upload-text-1": "Drag books here or click to select files",
+    "upload-text-2": "Attach as many books as you like, each book should not exceed 20mb",
+    "upload-queue": "Upload Queue"
+}
