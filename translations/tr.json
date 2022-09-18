@@ -1,0 +1,14 @@
+{
+  "register": "Kayıt Ol",
+  "login": "Giriş Yap",
+  "logout": "Çıkış yap",
+  "contact": "İletişim",
+  "playlist": "Okuma Listesi",
+  "subscription": "Abonelik",
+  "settings": "Ayarlar",
+  "account": "Hesabım",
+  "billing": "Ödeme",
+  "upload": "Yükle",
+  "upload-a-vcf-file": "VCF Dosyası",
+  "upload-a-barcode": "Hasta Barkodu"
+}

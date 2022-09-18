@@ -1,0 +1,14 @@
+{
+  "register": "Register",
+  "login": "Login",
+  "logout": "Logout",
+  "contact": "Contact",
+  "playlist": "Playlist",
+  "subscription": "Subscription",
+  "settings": "Settings",
+  "account": "Account",
+  "billing": "Billing",
+  "upload": "Upload",
+  "upload-a-vcf-file": "A VCF File",
+  "upload-a-barcode": "A Patient Barcode"
+}

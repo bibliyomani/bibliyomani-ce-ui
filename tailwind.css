@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    @font-face {
+        font-family: 'Poppins';
+    }
+    
+    html {
+        @apply text-gray-600
+    }
+
+    pre {
+        @apply p-3 bg-gray-100 rounded
+    }
+}
+
+@layer components {
+    .text-brand {
+        font-size: 24px;
+        color: black;
+    }
+}
+
+@layer components {
+
+}
