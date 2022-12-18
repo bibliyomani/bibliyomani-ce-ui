@@ -1,11 +1,12 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./style.css";
-import "./i18n";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './style.css';
+import './i18n';
 
 import { MantineProvider, createEmotionCache } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
+import { ModalsProvider } from '@mantine/modals';
 
 const appendCache = createEmotionCache({ key: 'mantine', prepend: false });
 
@@ -17,12 +18,14 @@ function Index() {
       withNormalizeCSS
     >
       <NotificationsProvider>
+        <ModalsProvider>
           <App />
+        </ModalsProvider>
       </NotificationsProvider>
     </MantineProvider>
   );
 }
 
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<Index tab="home" />);
+root.render(<Index/>);

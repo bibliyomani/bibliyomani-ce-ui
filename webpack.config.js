@@ -5,11 +5,11 @@ const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const port = process.env.PORT || 3000;
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV === 'local';
 
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.[fullhash].js',
@@ -22,10 +22,15 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components'),
       pages: path.resolve(__dirname, 'src/pages'),
     },
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.(woff|woff2|ttf)$/,
         use: {
@@ -106,6 +111,7 @@ module.exports = {
           },
         ],
       },
+      { test: /\.json$/, type: 'json' },
     ],
   },
 
@@ -122,7 +128,7 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: port,
-    historyApiFallback: true,
+    historyApiFallback: { index: '/', disableDotRule: true },
     open: true,
     hot: true,
   },
