@@ -33,7 +33,7 @@ const NavigationSettings = () => {
                 alt="it's me"
                 size={35}
               />
-              <Text>some user1</Text>
+              <Text>Community User</Text>
             </Group>
           </UnstyledButton>
         </Menu.Target>
