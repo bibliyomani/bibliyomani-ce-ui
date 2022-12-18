@@ -21,6 +21,7 @@ module.exports = {
       i18n: path.resolve(__dirname, 'src/i18n'),
       components: path.resolve(__dirname, 'src/components'),
       pages: path.resolve(__dirname, 'src/pages'),
+      types: path.resolve(__dirname, 'src/types')
     },
     extensions: ['', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
