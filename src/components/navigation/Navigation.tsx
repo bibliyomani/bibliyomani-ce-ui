@@ -1,7 +1,7 @@
-import React from "react";
-import { Navbar } from "flowbite-react";
-import { useTranslation } from "react-i18next";
-import NavigationSettings from "./NavigationSettings";
+import React from 'react';
+import { Navbar } from 'flowbite-react';
+import { useTranslation } from 'react-i18next';
+import NavigationSettings from './NavigationSettings';
 
 const NavigationBar = () => {
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ const NavigationBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
-          <NavigationSettings/>
+          <NavigationSettings />
         </Navbar.Collapse>
       </Navbar>
     </div>

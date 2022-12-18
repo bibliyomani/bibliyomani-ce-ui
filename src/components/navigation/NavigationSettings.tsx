@@ -4,7 +4,7 @@ import { openConfirmModal } from '@mantine/modals';
 
 import { useNavigate } from 'react-router-dom';
 import { showNotification } from '@mantine/notifications';
-import { IconCheck, IconLogout } from '@tabler/icons';
+import { IconCheck, IconLogout, IconUpload } from '@tabler/icons';
 
 import { Menu, Text, UnstyledButton, Group, Avatar } from '@mantine/core';
 import {
@@ -20,7 +20,6 @@ export const generateDiceBearAvataaars = (seed: any) =>
   `https://avatars.dicebear.com/api/avataaars/${seed}.svg`;
 
 const NavigationSettings = () => {
-  const navigate = useNavigate();
 
   return (
     <>
@@ -39,9 +38,9 @@ const NavigationSettings = () => {
         </Menu.Target>
 
         <Menu.Dropdown>
-          <Menu.Label>enes usta</Menu.Label>
-          {/* <Menu.Item icon={<IconSettings size={14} />}>Settings</Menu.Item>
-            <Menu.Item icon={<IconMessageCircle size={14} />}>
+          {/* <Menu.Label>enes usta</Menu.Label> */}
+          <Menu.Item icon={<IconUpload size={14} />}>Upload Book</Menu.Item>
+            {/* <Menu.Item icon={<IconMessageCircle size={14} />}>
               Messages
             </Menu.Item>
             <Menu.Item icon={<IconPhoto size={14} />}>Gallery</Menu.Item>
@@ -54,8 +53,8 @@ const NavigationSettings = () => {
               }
             >
               Search
-            </Menu.Item> */}
-
+            </Menu.Item>
+ */}
           <Menu.Divider />
 
           {/* <Menu.Label>Danger zone</Menu.Label> */}

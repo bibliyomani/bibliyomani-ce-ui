@@ -1,29 +1,22 @@
-import React from 'react';
-import { Card, Text, Button, Grid } from '@mantine/core';
+import React, { useEffect, useState } from 'react';
+import Book from 'types/Book';
+import axios from 'axios';
+import BookPresentationTable from 'components/book/BookPresentationTable';
 
 const HomePage = () => {
-  return (
-    <Grid>
-      <Grid.Col span={6}>
-        <Card shadow="sm" p="lg" radius="md" withBorder>
-          <Text size="sm" color="dimmed">
-            Book Upload
-          </Text>
+  const [books, setBooks] = useState<Book[]>();
 
-          <Button
-            variant="light"
-            color="blue"
-            fullWidth
-            mt="md"
-            radius="md"
-            component="a"
-            href="/upload"
-          >
-            Click
-          </Button>
-        </Card>
-      </Grid.Col>
-   </Grid>
+  useEffect(() => {
+    (async () => {
+      const res = await axios.get<Book[]>('/book/all');
+      setBooks(res.data);
+    })();
+  }, []);
+
+  return (
+    <div className="mt-8">
+      <BookPresentationTable books={books} />
+    </div>
   );
 };
 
