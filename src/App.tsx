@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from 'components/Footer';
 import BookUploadPage from 'pages/BookUploadPage';
 import Navigation from 'components/navigation/Navigation';
+import HomePage from 'pages/HomePage';
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
 
         <div className="flex-1 mt-8">
           <Routes>
-            {/* <Route exact path="/" element={<Demo />} /> */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/upload" element={<BookUploadPage />} />
           </Routes>
         </div>
