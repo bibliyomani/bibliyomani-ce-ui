@@ -21,7 +21,8 @@ module.exports = {
       i18n: path.resolve(__dirname, 'src/i18n'),
       components: path.resolve(__dirname, 'src/components'),
       pages: path.resolve(__dirname, 'src/pages'),
-      types: path.resolve(__dirname, 'src/types')
+      types: path.resolve(__dirname, 'src/types'),
+      router: path.resolve(__dirname, 'src/router'),
     },
     extensions: ['', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
@@ -33,18 +34,10 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(woff|woff2|ttf)$/,
-        use: {
-          loader: 'url-loader',
-        },
+        test: /\.(png|jpg|jpeg|woff|woff2|ttf)$/,
+        type: 'asset/resource',
       },
-      {
-        test: /\.(png|jpg|jpeg)$/,
-        use: {
-          loader: 'url-loader',
-        },
-      },
-      {
+     {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
