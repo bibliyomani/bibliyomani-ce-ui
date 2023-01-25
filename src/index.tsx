@@ -1,6 +1,5 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
 import './style.css';
 import './i18n';
 import axios from 'axios';
@@ -8,6 +7,7 @@ import axios from 'axios';
 import { MantineProvider, createEmotionCache } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { ModalsProvider } from '@mantine/modals';
+import RouteContainer from './RouteContainer';
 
 const appendCache = createEmotionCache({ key: 'mantine', prepend: false });
 
@@ -22,7 +22,7 @@ const Index = () => {
     >
       <NotificationsProvider>
         <ModalsProvider>
-          <App />
+          <RouteContainer />
         </ModalsProvider>
       </NotificationsProvider>
     </MantineProvider>
