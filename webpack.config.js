@@ -23,6 +23,7 @@ module.exports = {
       pages: path.resolve(__dirname, 'src/pages'),
       types: path.resolve(__dirname, 'src/types'),
       router: path.resolve(__dirname, 'src/router'),
+      services: path.resolve(__dirname, 'src/services')
     },
     extensions: ['', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
