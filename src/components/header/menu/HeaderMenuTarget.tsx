@@ -8,7 +8,14 @@ export const generateDiceBearAvataaars = (seed: any) =>
 const HeaderMenuTarget = () => {
   const [up, setUp] = useState(false);
 
-  useEffect(() => {}, [up]);
+  useEffect(() => {
+    console.log('rerender');
+    
+  }, [up]);
+  useEffect(() => {
+    console.log('rerender-1');
+    
+  }, []);
 
   return (
     <Menu.Target>
