@@ -8,7 +8,7 @@ const HeaderMenuContainer = () => {
   return (
     <div className="flex flex-row justify-between gap-[20px]">
       <div className="flex flex-row justify-between items-center gap-4">
-        <Button>Create</Button>
+        <Button color='orange'>Create</Button>
         <IconQuestionMark />
         <IconNotification />
         <Divider orientation="vertical" />

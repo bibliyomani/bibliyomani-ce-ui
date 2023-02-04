@@ -23,7 +23,11 @@ module.exports = {
       pages: path.resolve(__dirname, 'src/pages'),
       types: path.resolve(__dirname, 'src/types'),
       router: path.resolve(__dirname, 'src/router'),
-      services: path.resolve(__dirname, 'src/services')
+      services: path.resolve(__dirname, 'src/services'),
+      landing: path.resolve(__dirname, 'src/landing'),
+      home: path.resolve(__dirname, 'src/home'),
+      constants: path.resolve(__dirname, 'src/constants'),
+      hooks: path.resolve(__dirname, 'src/hooks'),
     },
     extensions: ['', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
@@ -38,7 +42,7 @@ module.exports = {
         test: /\.(png|jpg|jpeg|woff|woff2|ttf)$/,
         type: 'asset/resource',
       },
-     {
+      {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
