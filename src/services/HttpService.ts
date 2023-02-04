@@ -4,9 +4,12 @@ import {
 } from '@mantine/nprogress';
 import axios, { AxiosError } from 'axios';
 
+const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms));
+
 async function get<Type>(url: string): Promise<[Type, AxiosError]> {
   try {
     startNavigationProgress();
+    await sleep(2000);
     const { data } = await axios.get<Type>(url);
     completeNavigationProgress();
     return Promise.resolve([data, null]);

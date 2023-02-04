@@ -12,8 +12,6 @@ const HeaderContainer = () => {
   };
 
   useEffect(() => {
-    console.log('rerender-oldu');
-    
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
@@ -23,24 +21,18 @@ const HeaderContainer = () => {
 
   return (
     <Header
-      height={80}
+      height={60}
       hidden={shouldHide}
       p="xs"
       sx={theme => ({ 'box-shadow': theme.shadows.sm })}
     >
-      <div className="mx-6 py-3">
+      <div className="mx-6">
         <div className="flex justify-between items-center">
           <div className="flex justify-between gap-5 items-center">
-            <Image
-              width={80}
-              radius="md"
-              src="https://szalongevity.com/assets/img/logo.svg"
-              alt="longevity logo"
-            />
             <Text
               component="a"
               href="/"
-              sx={{ fontFamily: 'JetBrains Mono, monospace' }}
+              sx={{ fontFamily: 'JetBrains Mono, monospace', color: 'orangered' }}
             >
               Bibliyomani
             </Text>
