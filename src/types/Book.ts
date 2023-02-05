@@ -14,6 +14,7 @@ interface BookMetada {
   last: number;
   total: number;
   size: string;
+  lastInteraction: number,
 }
 
 export default Book;

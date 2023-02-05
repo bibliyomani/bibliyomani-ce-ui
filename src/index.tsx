@@ -10,6 +10,11 @@ import { ModalsProvider } from '@mantine/modals';
 import RouteContainer from 'router/RouteContainer';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
+
 const appendCache = createEmotionCache({ key: 'mantine', prepend: false });
 
 axios.defaults.baseURL = process.env.REACT_APP_URL_DEVELOPMENT;
