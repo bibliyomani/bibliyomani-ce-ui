@@ -8,29 +8,8 @@ export const generateDiceBearAvataaars = (seed: any) =>
 const HeaderMenuTarget = () => {
   const [up, setUp] = useState(false);
 
-  useEffect(() => {
-    console.log('rerender');
-    
-  }, [up]);
-  useEffect(() => {
-    console.log('rerender-1');
-    
-  }, []);
-
   return (
     <Menu.Target>
-      {/* <UnstyledButton>
-        <Group>
-          <Avatar
-            src={generateDiceBearAvataaars(Math.random())}
-            alt="it's me"
-            size={35}
-          />
-
-          <Text>{`${firstName} ${lastName}`}</Text>
-        </Group>
-      </UnstyledButton> */}
-
       <div
         className="flex flex-row justify-center  pb-1 cursor-pointer"
         onClick={() => {

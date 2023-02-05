@@ -33,7 +33,7 @@
     "@react-pdf-viewer/default-layout": "^3.10.0",
     "@tabler/icons": "^1.82.0",
     "axios": "^1.2.1",
-    "dayjs": "^1.11.5",
+    "dayjs": "^1.11.7",
     "flowbite": "^1.4.7",
     "flowbite-react": "^0.3.7",
     "i18next": "^21.8.14",

@@ -49,8 +49,8 @@ async function patch<Type>(
 ): Promise<[Type, AxiosError]> {
   try {
     const { data } = body
-      ? await axios.put<Type>(url, body)
-      : await axios.put<Type>(url);
+      ? await axios.patch<Type>(url, body)
+      : await axios.patch<Type>(url);
     return Promise.resolve([data, null]);
   } catch (e) {
     return Promise.resolve([undefined, e]);
