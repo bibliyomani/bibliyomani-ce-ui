@@ -33,7 +33,7 @@ const HomePresentationTable = () => {
             accessor: 'name',
             title: 'Name',
             textAlignment: 'left',
-            width: '80%',
+            width: '75%',
           },
           {
             accessor: 'size',
@@ -41,6 +41,12 @@ const HomePresentationTable = () => {
             textAlignment: 'left',
             width: '10%',
             render: (record: BookMetada) => record?.size ?? '-',
+          },
+          {
+            accessor: 'status',
+            title: 'Status',
+            textAlignment: 'center',
+            render: (record: BookMetada) => `${record.read} / ${record.total}`,
           },
           {
             accessor: 'lastInteraction',
@@ -52,7 +58,8 @@ const HomePresentationTable = () => {
           },
         ]}
         onRowClick={(record: BookMetada, rowIndex: number) => {
-          history(`/book/${record.bookId}`);
+          const lastReadedPage = record?.read ?? 0;
+          history(`/book/${record.bookId}?i=${lastReadedPage}`);
         }}
         // loadingText="Loading..."
         noRecordsText="No records found"
