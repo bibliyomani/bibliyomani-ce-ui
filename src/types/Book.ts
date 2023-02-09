@@ -11,7 +11,7 @@ interface BookMetada {
   bookId: number;
   name: string;
   hash: string;
-  last: number;
+  read: number;
   total: number;
   size: string;
   lastInteraction: number,

@@ -10,7 +10,7 @@ import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import useInvokeLastInteraction from 'hooks/useInvokeLastInteraction';
 import useWindowDimensions from 'hooks/useWindowDimensions';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { updateLastRead } from 'services/BookService';
 
 const BASE_URL = process.env.REACT_APP_URL_DEVELOPMENT;
@@ -22,6 +22,8 @@ const BookPage = () => {
   const [last, setLast] = useState<number>(0);
 
   const { bookId } = useParams();
+  const [searchParams] = useSearchParams();
+  const i = searchParams.get('i');
 
   const invoke = useInvokeLastInteraction(bookId);
   const bookURL = `${BASE_URL}/book/${bookId}`;
@@ -32,7 +34,7 @@ const BookPage = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      updateLastRead(+bookId, last);
+      if (last > +i) updateLastRead(+bookId, last);
     }, 2000);
 
     return () => {
@@ -51,7 +53,7 @@ const BookPage = () => {
               // defaultScale={"PageFit"}
               // defaultScale={"PageFit"}
               // defaultScale={SpecialZoomLevel.PageFit}
-              initialPage={53}
+              initialPage={+i}
               // scrollMode={ScrollMode.Page}
               // viewMode={ViewMode.SinglePage}
               onDocumentLoad={_ => completeNavigationProgress()}
