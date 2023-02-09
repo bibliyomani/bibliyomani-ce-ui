@@ -1,14 +1,14 @@
 import { Box } from '@mantine/core';
 import LOADING_OVERLAY_CONSTANT from 'constants/LoadingOverlayConstants';
 import dayjs from 'dayjs';
-import useFetch from 'hooks/useFetch';
+import { useHttpGet } from 'kanca/http';
 import { DataTable } from 'mantine-datatable';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookMetada } from 'types/Book';
 
 const HomePresentationTable = () => {
-  const { state, loading, err } = useFetch<BookMetada[]>('/book-metadata');
+  const { state, loading, err } = useHttpGet<BookMetada[]>('/book-metadata');
   const history = useNavigate();
 
   return (

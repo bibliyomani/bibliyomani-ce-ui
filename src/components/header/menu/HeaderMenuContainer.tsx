@@ -10,6 +10,9 @@ const HeaderMenuContainer = () => {
   return (
     <div className="flex flex-row justify-between gap-[20px]">
       <div className="flex flex-row justify-between items-center gap-4">
+        <Button color='orange'>
+          Playlists
+        </Button>
         <Button
           color="orange"
           onClick={() => {
@@ -18,6 +21,7 @@ const HeaderMenuContainer = () => {
         >
           Upload
         </Button>
+
         <IconQuestionMark />
         <IconNotification />
         <Divider orientation="vertical" />

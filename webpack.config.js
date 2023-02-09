@@ -3,18 +3,25 @@ const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 const isDevelopment = process.env.NODE_ENV === 'local';
 
-module.exports = {
-  mode: isDevelopment ? 'development' : 'production',
+const smp = new SpeedMeasurePlugin();
+
+const config = {
+  mode: process.env.NODE_ENV,
   entry: './src/index.tsx',
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.[fullhash].js',
   },
-
   resolve: {
     alias: {
       root: path.resolve(__dirname, 'src/'),
@@ -41,52 +48,6 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|woff|woff2|ttf)$/,
         type: 'asset/resource',
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  loose: false,
-                  shippedProposals: true,
-                },
-              ],
-              [
-                '@babel/preset-react',
-                {
-                  runtime: 'automatic',
-                },
-              ],
-            ],
-            plugins: [
-              '@babel/plugin-proposal-object-rest-spread',
-              [
-                '@babel/plugin-proposal-private-property-in-object',
-                {
-                  loose: false,
-                },
-              ],
-              [
-                '@babel/plugin-proposal-class-properties',
-                {
-                  loose: false,
-                },
-              ],
-              [
-                '@babel/plugin-proposal-private-methods',
-                {
-                  loose: false,
-                },
-              ],
-              isDevelopment && require.resolve('react-refresh/babel'),
-            ].filter(Boolean),
-          },
-        },
       },
       {
         test: /\.s[ac]ss$/i,
@@ -132,3 +93,5 @@ module.exports = {
     hot: true,
   },
 };
+
+module.exports = smp.wrap(config);
