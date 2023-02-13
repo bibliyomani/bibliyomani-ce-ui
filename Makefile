@@ -1,6 +1,6 @@
 .PHONY: default
 
-default: run
+default: build
 
-run:
-	docker build -t bibliyomani-ui --build-arg ENV=production .
+build:
+	docker build --no-cache -t bibliyomani-ui --build-arg ENV=production .

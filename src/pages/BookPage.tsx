@@ -27,9 +27,13 @@ const BookPage = () => {
 
   const invoke = useInvokeLastInteraction(bookId);
   const bookURL = `${BASE_URL}/book/${bookId}`;
+  console.log(bookURL);
+  
 
   useEffect(() => {
     startNavigationProgress();
+    console.log(process.env.REACT_APP_URL_DEVELOPMENT);
+    
   }, []);
 
   useEffect(() => {

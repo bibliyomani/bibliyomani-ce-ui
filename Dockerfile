@@ -1,22 +1,24 @@
-FROM mhart/alpine-node AS builder
+# FROM mhart/alpine-node AS builder
 
+# WORKDIR /app
 
-ARG ENV
-ENV NODE_ENV=$ENV
+# COPY . ./
 
-WORKDIR /usr/src/app
+# ARG ENV
 
-COPY package.json yarn.lock ./
+# RUN npm install --force
 
-RUN yarn install
+# ENV NODE_ENV=$ENV
 
-COPY . .
+# RUN npm run build --env=$ENV
 
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
 
-EXPOSE 80
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY /dist /usr/share/nginx/html
+# COPY --from=builder /app/dist /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]

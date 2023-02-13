@@ -3,12 +3,9 @@ const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 const isDevelopment = process.env.NODE_ENV === 'local';
-
-const smp = new SpeedMeasurePlugin();
 
 const config = {
   mode: process.env.NODE_ENV,
@@ -42,11 +39,12 @@ const config = {
     rules: [
       {
         test: /\.(ts|tsx)?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        loader: 'ts-loader',
+        options: { transpileOnly: true },
       },
       {
-        test: /\.(png|jpg|jpeg|woff|woff2|ttf)$/,
+        test: /\.(png|jpg|jpeg|woff|woff2|ttf|svg)$/,
         type: 'asset/resource',
       },
       {
@@ -56,20 +54,6 @@ const config = {
       {
         test: /\.css$/,
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'react-svg-loader',
-            options: {
-              jsx: true, // true outputs JSX tags
-            },
-          },
-        ],
       },
       { test: /\.json$/, type: 'json' },
     ],
@@ -94,4 +78,4 @@ const config = {
   },
 };
 
-module.exports = smp.wrap(config);
+module.exports = config;
