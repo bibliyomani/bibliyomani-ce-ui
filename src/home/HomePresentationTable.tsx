@@ -58,8 +58,7 @@ const HomePresentationTable = () => {
           },
         ]}
         onRowClick={(record: BookMetada, rowIndex: number) => {
-          const lastReadedPage = record?.read ?? 0;
-          history(`/book/${record.bookId}?i=${lastReadedPage}`);
+          history(`/book/${record.bookId}`);
         }}
         // loadingText="Loading..."
         noRecordsText="No records found"
