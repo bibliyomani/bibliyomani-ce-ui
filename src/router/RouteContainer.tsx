@@ -13,7 +13,7 @@ const RouteContainer = () => {
           <Route element={<AppShellContainerLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/upload" element={<BookUploadPage />} />
-            <Route path="/book/:bookId" element={<BookPage />} />
+            {/* <Route path="/book/:bookId" element={<BookPage />} /> */}
           </Route>
         </Routes>
       </div>

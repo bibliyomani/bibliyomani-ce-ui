@@ -1,4 +1,4 @@
-import { put } from 'services/HttpService';
+import { patch, put } from 'services/HttpService';
 
 const updateLastRead = async (
   bookId: number,
@@ -8,4 +8,8 @@ const updateLastRead = async (
   return err === undefined;
 };
 
-export { updateLastRead };
+const invokePatchRequestWhichUpdatesLastInteraction = async (bookId: number): Promise<void> => {
+  const [data, err] = await patch(`/book/${bookId}`);
+};
+
+export { updateLastRead, invokePatchRequestWhichUpdatesLastInteraction };
