@@ -1176,6 +1176,11 @@
     aria-hidden "^1.1.3"
     tabbable "^6.0.1"
 
+"@formkit/auto-animate@^1.0.0-beta.6":
+  version "1.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@formkit/auto-animate/-/auto-animate-1.0.0-beta.6.tgz#ed7f8bc47d774a7764756646e9e3432e8be51cb3"
+  integrity sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==
+
 "@headlessui/react@^1.6.6":
   version "1.7.2"
   resolved "https://registry.npmjs.org/@headlessui/react/-/react-1.7.2.tgz"
@@ -1705,6 +1710,18 @@
   version "7.0.11"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
   integrity sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==
+
+"@types/lodash.debounce@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.npmjs.org/@types/lodash.debounce/-/lodash.debounce-4.0.7.tgz"
+  integrity sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*", "@types/lodash@^4.14.191":
+  version "4.14.191"
+  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.191.tgz"
+  integrity sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==
 
 "@types/mime@*":
   version "3.0.1"
@@ -3928,10 +3945,10 @@ json5@^2.1.2, json5@^2.2.1:
   resolved "https://registry.npmjs.org/json5/-/json5-2.2.1.tgz"
   integrity sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==
 
-kanca@1.2.8:
-  version "1.2.8"
-  resolved "https://registry.npmjs.org/kanca/-/kanca-1.2.8.tgz"
-  integrity sha512-JWiuugHrUTLsboyAg/B253YVpXlI+QjTc6T9xU/w5a4MeN2ol1dFh3elMok7/eJhgcWs8313HqSevF3ZRR976A==
+kanca@1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/kanca/-/kanca-1.3.3.tgz#650d55e5415802a2d22508a9e54c52627bc12c47"
+  integrity sha512-3U/EYURMSD/K7/iFMQVBd0Mxi4Ow0p/RZrX/Mdao/md0z9n9CyBkSagaxgmGZLKcdZSQf9/Fvwbthxgew1x/cA==
 
 kind-of@^6.0.2:
   version "6.0.3"
@@ -5834,7 +5851,7 @@ webpack-sources@^3.2.3:
 
 webpack@^5.75.0:
   version "5.75.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.75.0.tgz#1e440468647b2505860e94c9ff3e44d5b582c152"
+  resolved "https://registry.npmjs.org/webpack/-/webpack-5.75.0.tgz"
   integrity sha512-piaIaoVJlqMsPtX/+3KTTO6jfvrSYgauFVdt8cr9LTHKmcq/AMd4mhzsiP7ZF/PGRNPGA8336jldh9l2Kt2ogQ==
   dependencies:
     "@types/eslint-scope" "^3.7.3"

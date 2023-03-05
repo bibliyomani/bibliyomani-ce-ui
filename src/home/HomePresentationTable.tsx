@@ -7,7 +7,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookMetada } from 'types/Book';
 
-const HomePresentationTable = () => {
+interface Props {
+  setMetadata: React.Dispatch<React.SetStateAction<BookMetada>>;
+}
+
+const HomePresentationTable = ({ setMetadata }: Props) => {
   const { state, loading, err } = useHttpGet<BookMetada[]>('/book-metadata');
   const history = useNavigate();
 
@@ -53,12 +57,12 @@ const HomePresentationTable = () => {
             title: 'Last Interaction',
             textAlignment: 'right',
             width: '10%',
-            render: (record: BookMetada) =>
-              dayjs().from(record.lastInteraction),
+            render: (record: BookMetada) => dayjs().from(record.lastInteraction),
           },
         ]}
         onRowClick={(record: BookMetada, rowIndex: number) => {
-          history(`/book/${record.bookId}`);
+          setMetadata(record);
+          // history(`/book/${record.bookId}?h=${record.hash}`);
         }}
         // loadingText="Loading..."
         noRecordsText="No records found"

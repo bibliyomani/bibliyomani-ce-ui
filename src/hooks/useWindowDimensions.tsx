@@ -17,8 +17,6 @@ export default function useWindowDimensions() {
   );
 
   function handleResize() {
-      console.log('trigger');
-      
     setWindowDimensions(getWindowDimensions());
   }
 
