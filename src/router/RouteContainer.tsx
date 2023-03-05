@@ -1,6 +1,5 @@
-import BookPage from 'pages/BookPage';
-import BookUploadPage from 'pages/BookUploadPage';
-import HomePage from 'pages/HomePage';
+import BookUploadPage from 'book/BookUploadPage';
+import HomePage from 'home/HomePage';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AppShellContainerLayout from 'router/AppShellContainerLayout';

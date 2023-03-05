@@ -1,10 +1,10 @@
 import HomeHeader from 'home/HomeHeader';
-import HomePresentationTable from 'home/HomePresentationTable';
 import React, { useEffect, useRef, useState } from 'react';
 
 import autoAnimate from '@formkit/auto-animate';
+import BookVieweer from 'book/BookViewer';
+import HomeRecentsTable from 'home/HomeRecentsTable';
 import { BookMetada } from 'types/Book';
-import BookPage from './BookPage';
 
 const HomePage = () => {
   const parent = useRef(null);
@@ -15,13 +15,13 @@ const HomePage = () => {
   }, [parent]);
 
   if (metadata) {
-    return <BookPage metadata={metadata} />;
+    return <BookVieweer metadata={metadata} />;
   }
 
   return (
     <div className="mt-8" ref={parent}>
       <HomeHeader />
-      <HomePresentationTable setMetadata={setMetadata} />
+      <HomeRecentsTable setMetadata={setMetadata} />
     </div>
   );
 };

@@ -4,26 +4,17 @@ import dayjs from 'dayjs';
 import { useHttpGet } from 'kanca/http';
 import { DataTable } from 'mantine-datatable';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { BookMetada } from 'types/Book';
 
 interface Props {
   setMetadata: React.Dispatch<React.SetStateAction<BookMetada>>;
 }
 
-const HomePresentationTable = ({ setMetadata }: Props) => {
+const HomeRecentsTable = ({ setMetadata }: Props) => {
   const { state, loading, err } = useHttpGet<BookMetada[]>('/book-metadata');
-  const history = useNavigate();
 
   return (
-    <Box
-      sx={{
-        margin: '0 auto',
-        width: '95%',
-        height: '80%',
-        paddingTop: '1%',
-      }}
-    >
+    <Box sx={{ margin: '0 auto', width: '95%', height: '80%', paddingTop: '1%' }}>
       <DataTable
         striped
         highlightOnHover
@@ -62,7 +53,6 @@ const HomePresentationTable = ({ setMetadata }: Props) => {
         ]}
         onRowClick={(record: BookMetada, rowIndex: number) => {
           setMetadata(record);
-          // history(`/book/${record.bookId}?h=${record.hash}`);
         }}
         // loadingText="Loading..."
         noRecordsText="No records found"
@@ -73,4 +63,4 @@ const HomePresentationTable = ({ setMetadata }: Props) => {
   );
 };
 
-export default HomePresentationTable;
+export default HomeRecentsTable;

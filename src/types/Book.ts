@@ -7,7 +7,7 @@ interface Book {
   total: number;
 }
 
-interface BookMetada {
+export interface BookMetada {
   bookId: number;
   name: string;
   hash: string;
@@ -18,4 +18,3 @@ interface BookMetada {
 }
 
 export default Book;
-export { BookMetada };
