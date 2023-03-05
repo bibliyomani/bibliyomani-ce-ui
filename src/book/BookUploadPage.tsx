@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Group, Space, Text } from '@mantine/core';
 import { Dropzone, IMAGE_MIME_TYPE, PDF_MIME_TYPE } from '@mantine/dropzone';
 import { IconFolder, IconX } from '@tabler/icons';
-import BookUploadTable from 'components/book/BookUploadTable';
+import BookUploadTable from 'book/BookUploadTable';
 import { useState } from 'react';
 import axios from 'axios';
 

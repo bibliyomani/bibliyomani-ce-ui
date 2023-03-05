@@ -12,17 +12,18 @@ import { BookMetada } from 'types/Book';
 
 const BASE_URL = process.env.REACT_APP_URL_DEVELOPMENT;
 
+Object.freeze(BASE_URL);
+
 interface Props {
   metadata: BookMetada;
 }
 
-const BookPage = ({ metadata }: Props) => {
+const BookVieweer = ({ metadata }: Props) => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const { height } = useWindowDimensions();
   const availableHeightForViewer = height - 80;
   const [last, setLast] = useState<number>();
 
-  // const { bookId } = useParams();
   const { bookId } = metadata;
 
   const changeHandler = (event: PageChangeEvent) => {
@@ -38,9 +39,7 @@ const BookPage = ({ metadata }: Props) => {
     invokePatchRequestWhichUpdatesLastInteraction(+bookId);
   }, []);
 
-  useBeforeUnload(() => {
-    updateLastRead(+bookId, last);
-  });
+  useBeforeUnload(() => updateLastRead(+bookId, last));
 
   return (
     <div className="w-full">
@@ -65,4 +64,4 @@ const BookPage = ({ metadata }: Props) => {
   );
 };
 
-export default BookPage;
+export default BookVieweer;

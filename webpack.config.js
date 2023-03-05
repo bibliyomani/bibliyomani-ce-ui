@@ -32,6 +32,7 @@ const config = {
       home: path.resolve(__dirname, 'src/home'),
       constants: path.resolve(__dirname, 'src/constants'),
       hooks: path.resolve(__dirname, 'src/hooks'),
+      book: path.resolve(__dirname, 'src/book'),
     },
     extensions: ['', '.js', '.jsx', '.ts', '.tsx', '.json'],
   },
@@ -66,6 +67,7 @@ const config = {
     isDevelopment && new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      favicon: './src/assets/favicon.svg'
     }),
   ].filter(Boolean),
 

@@ -4,7 +4,7 @@
     "name": "Enes Usta",
     "email": "enesusta@protonmail.com"
   },
-  "version": "1.0.0",
+  "version": "0.4",
   "source": "src/index.html",
   "scripts": {
     "start": "NODE_ENV=development webpack serve --mode development --hot",
