@@ -18,17 +18,15 @@ interface Props {
   metadata: BookMetada;
 }
 
-const BookVieweer = ({ metadata }: Props) => {
+const BookVieweer = ({ metadata: { bookId, read } }: Props) => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const { height } = useWindowDimensions();
   const availableHeightForViewer = height - 80;
   const [last, setLast] = useState<number>();
 
-  const { bookId } = metadata;
-
   const changeHandler = (event: PageChangeEvent) => {
     const { currentPage } = event;
-    currentPage > metadata.read && updateLastRead(+bookId, currentPage);
+    currentPage > read && updateLastRead(+bookId, currentPage);
     setLast(currentPage);
   };
 
@@ -43,7 +41,7 @@ const BookVieweer = ({ metadata }: Props) => {
 
   return (
     <div className="w-full">
-      {metadata && (
+      {read && (
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js">
           <Box sx={{ height: `${availableHeightForViewer}px` }}>
             <Viewer
@@ -51,7 +49,7 @@ const BookVieweer = ({ metadata }: Props) => {
               plugins={[defaultLayoutPluginInstance]}
               // defaultScale={"PageFit"}
               // defaultScale={SpecialZoomLevel.PageFit}
-              initialPage={metadata.read}
+              initialPage={read}
               // scrollMode={ScrollMode.Page}
               // viewMode={ViewMode.}
               onDocumentLoad={_ => completeNavigationProgress()}
