@@ -20,7 +20,7 @@ const HomePage = () => {
 
   return (
     <div className="mt-8" ref={parent}>
-      <HomeHeader />
+      {/* <HomeHeader /> */}
       <HomeRecentsTable setMetadata={setMetadata} />
     </div>
   );

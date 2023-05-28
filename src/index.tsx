@@ -8,7 +8,6 @@ import { MantineProvider, createEmotionCache } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { ModalsProvider } from '@mantine/modals';
 import RouteContainer from 'router/RouteContainer';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -19,20 +18,12 @@ const appendCache = createEmotionCache({ key: 'mantine', prepend: false });
 
 axios.defaults.baseURL = process.env.REACT_APP_URL_DEVELOPMENT;
 
-const queryClient = new QueryClient();
-
 const Index = () => {
   return (
-    <MantineProvider
-      emotionCache={appendCache}
-      withGlobalStyles
-      withNormalizeCSS
-    >
+    <MantineProvider emotionCache={appendCache} withGlobalStyles withNormalizeCSS>
       <NotificationsProvider>
         <ModalsProvider>
-          <QueryClientProvider client={queryClient}>
-            <RouteContainer />
-          </QueryClientProvider>
+          <RouteContainer />
         </ModalsProvider>
       </NotificationsProvider>
     </MantineProvider>
