@@ -1,16 +1,16 @@
-# FROM mhart/alpine-node AS builder
+FROM mhart/alpine-node AS builder
 
-# WORKDIR /app
+WORKDIR /app
 
-# COPY . ./
+COPY . ./
 
-# ARG ENV
+ARG ENV
 
-# RUN npm install --force
+RUN npm install --force
 
-# ENV NODE_ENV=$ENV
+ENV NODE_ENV=$ENV
 
-# RUN npm run build --env=$ENV
+RUN npm run build --env=$ENV
 
 FROM nginx:alpine
 
@@ -19,6 +19,6 @@ ENV NODE_ENV $NODE_ENV
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY /dist /usr/share/nginx/html
-# COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 CMD ["nginx", "-g", "daemon off;"]
