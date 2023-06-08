@@ -1,3 +1,4 @@
+import { createEmotionCache } from '@mantine/core';
 import BookUploadPage from 'book/BookUploadPage';
 import HomePage from 'home/HomePage';
 import React from 'react';
@@ -12,7 +13,6 @@ const RouteContainer = () => {
           <Route element={<AppShellContainerLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/upload" element={<BookUploadPage />} />
-            {/* <Route path="/book/:bookId" element={<BookPage />} /> */}
           </Route>
         </Routes>
       </div>
