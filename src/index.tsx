@@ -1,14 +1,14 @@
+import axios from 'axios';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './style.css';
 import './i18n';
-import axios from 'axios';
+import './style.css';
 
 import { MantineProvider, createEmotionCache } from '@mantine/core';
-import { NotificationsProvider } from '@mantine/notifications';
 import { ModalsProvider } from '@mantine/modals';
 import RouteContainer from 'router/RouteContainer';
 
+import { Notifications } from '@mantine/notifications';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
@@ -21,11 +21,10 @@ axios.defaults.baseURL = process.env.REACT_APP_URL_DEVELOPMENT;
 const Index = () => {
   return (
     <MantineProvider emotionCache={appendCache} withGlobalStyles withNormalizeCSS>
-      <NotificationsProvider>
-        <ModalsProvider>
-          <RouteContainer />
-        </ModalsProvider>
-      </NotificationsProvider>
+      <ModalsProvider>
+        <Notifications />
+        <RouteContainer />
+      </ModalsProvider>
     </MantineProvider>
   );
 };
