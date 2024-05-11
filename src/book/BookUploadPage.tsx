@@ -5,8 +5,9 @@ import BookUploadTable from 'book/BookUploadTable';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Book from 'types/Book';
-import { IconCheck, IconFolder, IconX } from '@tabler/icons';
-import { notifications } from '@mantine/notifications';
+import { IconFolder, IconX } from '@tabler/icons';
+
+import { toast } from 'sonner';
 
 const BookUploadPage = () => {
   const [acceptedFiles, setAcceptedFiles] = useState<File[]>();
@@ -22,28 +23,16 @@ const BookUploadPage = () => {
 
     try {
       setLoading(true);
-      notifications.show({
-        id: 'load-data',
-        loading: true,
-        title: 'Your book is uploading..',
-        message: 'Data will be loaded in X seconds, you cannot close this yet',
-        autoClose: false,
-        withCloseButton: false,
-      });
-      const res = await axios.post<Book>('/book', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
+      const promise = axios.post<Book>('/book', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+      toast.promise(promise, {
+        loading: 'Your book is uploading..',
+        success: data => {
+          setLoading(false);
+          return `The book was uploaded.`;
         },
+        error: 'Error',
       });
-      notifications.update({
-        id: 'load-data',
-        color: 'teal',
-        title: 'The book was uploaded.',
-        message: 'Notification will close in 2 seconds, you can close this notification now',
-        icon: <IconCheck size="1rem" />,
-        autoClose: 2000,
-      });
-      setLoading(false);
+
       history('/');
     } catch (e) {}
   };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Table } from 'flowbite-react';
 import { Group, Space, Text, Title } from '@mantine/core';
 
 interface Props {
@@ -34,55 +33,55 @@ const BookUploadTable = ({ books }: Props) => {
         </Group>
       </div>
 
-      <Space h='xl' />
+      <Space h="xl" />
 
-      <React.Fragment>
-        <Table hoverable={true}>
-          <Table.Head>
-            <Table.HeadCell>File</Table.HeadCell>
-            <Table.HeadCell>Type</Table.HeadCell>
-            <Table.HeadCell>Size</Table.HeadCell>
-            <Table.HeadCell>Last Modified Date</Table.HeadCell>
-            <Table.HeadCell>
-              <span className="sr-only">Edit</span>
-            </Table.HeadCell>
-          </Table.Head>
-          <Table.Body className="divide-y">
-            {books &&
-              books.length > 0 &&
-              books.map((book: File, index: number) => {
-                const {
-                  name = undefined,
-                  lastModified = undefined,
-                  size = undefined,
-                  type = undefined,
-                }: File = book ?? ({} as File);
-                const d = new Date(lastModified).toLocaleDateString('en');
-
-                return (
-                  <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                      {name}
-                    </Table.Cell>
-                    <Table.Cell>{type}</Table.Cell>
-                    <Table.Cell>{niceBytes(size)}</Table.Cell>
-                    <Table.Cell>{d}</Table.Cell>
-                    <Table.Cell>
-                      <a
-                        // href="/tables"
-                        className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                      >
-                        Remove
-                      </a>
-                    </Table.Cell>
-                  </Table.Row>
-                );
-              })}
-          </Table.Body>
-        </Table>
-      </React.Fragment>
+      <React.Fragment></React.Fragment>
     </div>
   );
 };
+
+// <Table hoverable={true}>
+//   <Table.Head>
+//     <Table.HeadCell>File</Table.HeadCell>
+//     <Table.HeadCell>Type</Table.HeadCell>
+//     <Table.HeadCell>Size</Table.HeadCell>
+//     <Table.HeadCell>Last Modified Date</Table.HeadCell>
+//     <Table.HeadCell>
+//       <span className="sr-only">Edit</span>
+//     </Table.HeadCell>
+//   </Table.Head>
+//   <Table.Body className="divide-y">
+//     {books &&
+//       books.length > 0 &&
+//       books.map((book: File, index: number) => {
+//         const {
+//           name = undefined,
+//           lastModified = undefined,
+//           size = undefined,
+//           type = undefined,
+//         }: File = book ?? ({} as File);
+//         const d = new Date(lastModified).toLocaleDateString('en');
+//
+//         return (
+//           <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+//             <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+//               {name}
+//             </Table.Cell>
+//             <Table.Cell>{type}</Table.Cell>
+//             <Table.Cell>{niceBytes(size)}</Table.Cell>
+//             <Table.Cell>{d}</Table.Cell>
+//             <Table.Cell>
+//               <a
+//                 // href="/tables"
+//                 className="font-medium text-blue-600 hover:underline dark:text-blue-500"
+//               >
+//                 Remove
+//               </a>
+//             </Table.Cell>
+//           </Table.Row>
+//         );
+//       })}
+//   </Table.Body>
+// </Table>
 
 export default BookUploadTable;

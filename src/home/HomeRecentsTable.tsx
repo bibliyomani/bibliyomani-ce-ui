@@ -121,7 +121,7 @@ const HomeRecentsTable = ({ setMetadata }: Props) => {
       />
       <Paper my="xl" py="xl" withBorder radius={0}>
         <Center>
-          <Button uppercase leftIcon={<IconTrash size={16} />} color="red" disabled={!selectedRecords.length} onClick={() => showNotification({ color: 'red', message: 'Deleting data is dangerous!' })}>
+          <Button uppercase leftIcon={<IconTrash size={16} />} color="red" disabled={!selectedRecords.length}>
             {selectedRecords.length ? `Delete ${selectedRecords.length === 1 ? 'one selected record' : `${selectedRecords.length} selected records`}` : 'Select records to delete'}
           </Button>
         </Center>

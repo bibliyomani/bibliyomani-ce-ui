@@ -1,9 +1,9 @@
 import { Avatar, Menu } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
-import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+// import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import { IconFolder, IconX } from '@tabler/icons';
 
-export const generateDiceBearAvataaars = (seed: any) =>
-  `https://avatars.dicebear.com/api/avataaars/${seed}.svg`;
+export const generateDiceBearAvataaars = (seed: any) => `https://avatars.dicebear.com/api/avataaars/${seed}.svg`;
 
 const HeaderMenuTarget = () => {
   const [up, setUp] = useState(false);
@@ -21,16 +21,8 @@ const HeaderMenuTarget = () => {
         }}
       >
         {/* <div className="bg-green-500 rounded-[50px] h-full p-2">EU</div> */}
-        <Avatar
-          src={generateDiceBearAvataaars(Math.random())}
-          alt="it's me"
-          size={35}
-        />
-        {up ? (
-          <BsChevronUp className="self-center" />
-        ) : (
-          <BsChevronDown className="self-center" />
-        )}
+        <Avatar src={generateDiceBearAvataaars(Math.random())} alt="it's me" size={35} />
+        {up ? <IconFolder className="self-center" /> : <IconFolder className="self-center" />}
       </div>
 
       {/* <Text
