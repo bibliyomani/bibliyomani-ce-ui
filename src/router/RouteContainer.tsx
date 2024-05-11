@@ -1,22 +1,27 @@
-import { createEmotionCache } from '@mantine/core';
 import BookUploadPage from 'book/BookUploadPage';
 import HomePage from 'home/HomePage';
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AppShellContainerLayout from 'router/AppShellContainerLayout';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import AuthLayout from './AuthLayout';
+
+const App = () => {
+  return <h1>enes10</h1>;
+};
 
 const RouteContainer = () => {
   return (
-    <BrowserRouter>
-      <div className="flex w-screen h-screen">
+    <Router>
+      <>
+        <h1>enes</h1>
         <Routes>
-          <Route element={<AppShellContainerLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/upload" element={<BookUploadPage />} />
+          <Route path="/upload" element={<BookUploadPage />} />
+
+          <Route element={<AuthLayout />}>
+            <Route path="/" element={<App />} />
           </Route>
         </Routes>
-      </div>
-    </BrowserRouter>
+      </>
+    </Router>
   );
 };
 

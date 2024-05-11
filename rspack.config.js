@@ -28,33 +28,20 @@ module.exports = (env, argv) => {
 
   return {
     context: __dirname,
-
-    devServer: {
-      port: 3200,
-      historyApiFallback: { index: '/', disableDotRule: true },
-      open: true,
-      hot: true,
-    },
-    experiments: {
-      rspackFuture: {
-        disableTransformByDefault: true,
-      },
-    },
-
-    devtool: !isDev ? 'source-map' : 'eval',
-    optimization: {
-      minimize: true,
-      minimizer: [
-        new minifyPlugin({
-          minifier: 'terser',
-        }),
-      ],
-    },
-
     mode: isDev ? 'development' : 'production',
     entry: {
       main: path.resolve(__dirname, 'src/index.tsx'),
     },
+
+    devtool: !isDev ? 'source-map' : 'eval',
+    // optimization: {
+    //   minimize: true,
+    //   minimizer: [
+    //     new minifyPlugin({
+    //       minifier: 'terser',
+    //     }),
+    //   ],
+    // },
 
     // output: {
     //   path: path.resolve(__dirname, 'dist/'),
@@ -71,6 +58,9 @@ module.exports = (env, argv) => {
         root: path.resolve(__dirname, 'src/'),
         i18n: path.resolve(__dirname, 'src/i18n'),
         components: path.resolve(__dirname, 'src/components'),
+        enum: path.resolve(__dirname, '/src/enum'),
+        navbar: path.resolve(__dirname, '/src/navbar'),
+        utils: path.resolve(__dirname, '/src/utils'),
         pages: path.resolve(__dirname, 'src/pages'),
         types: path.resolve(__dirname, 'src/types'),
         router: path.resolve(__dirname, 'src/router'),
@@ -160,16 +150,13 @@ module.exports = (env, argv) => {
         // favicon: './src/assets/favicon.png',
       }),
       new rspack.DefinePlugin(envKeys),
-      new BundleStatsWebpackPlugin({
-        html: true,
-        stats: {
-          assets: true,
-          chunks: true,
-          modules: true,
-          builtAt: true,
-          hash: true,
-        },
-      }),
     ].filter(Boolean),
+
+    devServer: {
+      port: 3200,
+      historyApiFallback: { index: '/', disableDotRule: true },
+      open: true,
+      hot: true,
+    },
   };
 };

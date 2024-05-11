@@ -1,7 +1,6 @@
 import { Box, Button, Center, Paper, Text } from '@mantine/core';
 import { openConfirmModal } from '@mantine/modals';
-import { showNotification } from '@mantine/notifications';
-import { IconTrash, IconX } from '@tabler/icons';
+import { IconTrash, IconX } from '@tabler/icons-react';
 import LOADING_OVERLAY_CONSTANT from 'constants/LoadingOverlayConstants';
 import dayjs from 'dayjs';
 import { useHttpGet } from 'kanca/http';
