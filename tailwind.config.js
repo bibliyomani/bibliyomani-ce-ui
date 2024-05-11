@@ -1,21 +1,21 @@
-module.exports = {
-  mode: "jit",
-  content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}",
-    "node_modules/mantine/**/*.{js,jsx,tsx}",
-    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
-  ],
+/** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: {
-        "dark-purple": "#081A51",
-        "light-white": "rgba(255,255,255,0.18)",
-        "file-upload": "#F1EEE9",
+      gridTemplateColumns: {
+        landing: '4fr 8fr',
+      },
+      screens: {
+        ...defaultTheme.screens,
+        xs: { max: '640px' },
+      },
+      fontFamily: {
+        poppins: 'Poppins, sans-serif',
       },
     },
   },
-  plugins: [require("flowbite/plugin")],
-  corePlugins: {
-    preflight: false
-  }
+  plugins: [],
 };
