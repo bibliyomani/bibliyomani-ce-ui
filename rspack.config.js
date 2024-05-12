@@ -9,10 +9,8 @@ const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
 const minifyPlugin = require('@rspack/plugin-minify');
 
 const dotenv = require('dotenv');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 /** @type {import('@rspack/cli').Configuration} */
-
 module.exports = (env, argv) => {
   const isDev = process.env.NODE_ENV === 'development';
 
@@ -34,6 +32,12 @@ module.exports = (env, argv) => {
     },
 
     devtool: !isDev ? 'source-map' : 'eval',
+    optimization: {
+      sideEffects: false,
+    },
+    builtins: {
+      treeShaking: true,
+    },
     // optimization: {
     //   minimize: true,
     //   minimizer: [
@@ -143,7 +147,6 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
-      new NodePolyfill(),
       isDev && new ReactRefreshPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
@@ -152,11 +155,11 @@ module.exports = (env, argv) => {
       new rspack.DefinePlugin(envKeys),
     ].filter(Boolean),
 
-    devServer: {
-      port: 3200,
-      historyApiFallback: { index: '/', disableDotRule: true },
-      open: true,
-      hot: true,
-    },
+    // devServer: {
+    // port: 3200,
+    // historyApiFallback: { index: '/', disableDotRule: true },
+    // open: true,
+    // hot: true,
+    // },
   };
 };

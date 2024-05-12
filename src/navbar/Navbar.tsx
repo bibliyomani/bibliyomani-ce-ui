@@ -4,19 +4,15 @@ import SettingsNavbar from './SettingsNavbar';
 import NavbarUserCard from './NavbarUserCard';
 import { UnstyledButton, Group, Avatar, Text, rem, TextInput, Code, Badge } from '@mantine/core';
 import { IconBulb, IconUser, IconCheckbox, IconSearch, IconBook, IconBook2, IconBooks } from '@tabler/icons-react';
+import { useOutletContext } from 'react-router-dom';
 
-const Navbar = (props: {}) => {
+const Navbar = ({ metadata, setMetadata }) => {
   const history = useNavigate();
 
-  const links = [
-    { icon: IconBooks, label: 'Home1', path: '/home' },
-    { icon: IconBook, label: 'Patients', path: '/patients' },
-    { icon: IconUser, label: 'Calendar', path: '/calendar' },
-    { icon: IconUser, label: 'Management', path: '/management' },
-  ];
+  const links = [{ icon: IconBooks, label: 'Home', path: '/' }];
 
   const mainLinks = links.map(link => (
-    <UnstyledButton key={link.label} className="flex flex-row align-center justify-between">
+    <UnstyledButton key={link.label} className="flex flex-row align-center justify-center pr-8">
       <div className="flex flex-row justify-around gap-3">
         <link.icon size={20} stroke={1.5} />
         <span
@@ -25,7 +21,10 @@ const Navbar = (props: {}) => {
             fontFamily: 'Open Sans, sans-serif',
             fontSize: '16px',
           }}
-          onClick={() => history(link.path)}
+          onClick={() => {
+            setMetadata(null);
+            history(link.path);
+          }}
         >
           {link.label}
         </span>
@@ -36,44 +35,14 @@ const Navbar = (props: {}) => {
   const radius = 8;
 
   return (
-    <nav className="2xl:flex xl:flex md:hidden sm:hidden xs:hidden lg:hidden flex-col justify-between bg-slate-100 w-50 p-4">
-      <nav className="flex flex-col justify-around">
-        <NavbarUserCard />
-        <TextInput
-          className="mb-4"
-          placeholder="Search"
-          size="xs"
-          styles={{
-            wrapper: {
-              borderTopLeftRadius: radius,
-              borderTopRightRadius: radius,
-              borderBottomLeftRadius: radius,
-              borderBottomRightRadius: radius,
-            },
-            section: { pointerEvents: 'none', marginRight: 5 },
-            input: {
-              borderTopLeftRadius: radius,
-              borderTopRightRadius: radius,
-              borderBottomLeftRadius: radius,
-              borderBottomRightRadius: radius,
-            },
-          }}
-          leftSection={<IconSearch size={14} />}
-          rightSection={
-            <Code>
-              <Text size="xs" color="dimmed">
-                ⌘K
-              </Text>
-            </Code>
-          }
-        />
-
-        <nav className="flex flex-col justify-around gap-3 mt-6">{mainLinks}</nav>
+    <nav className="2xl:flex xl:flex md:hidden sm:hidden xs:hidden lg:hidden flex-col justify-between bg-slate-100 w-40 p-4">
+      <nav className="flex flex-col justify-around pr-2">
+        <nav className="flex flex-col justify-center gap-3 mt-6">{mainLinks}</nav>
       </nav>
-
-      <SettingsNavbar />
     </nav>
   );
 };
 
+// <NavbarUserCard />
+// <SettingsNavbar />
 export default Navbar;

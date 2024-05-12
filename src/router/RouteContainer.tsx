@@ -12,12 +12,10 @@ const RouteContainer = () => {
   return (
     <Router>
       <>
-        <h1>enes</h1>
         <Routes>
           <Route path="/upload" element={<BookUploadPage />} />
-
           <Route element={<AuthLayout />}>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={<HomePage />} />
           </Route>
         </Routes>
       </>

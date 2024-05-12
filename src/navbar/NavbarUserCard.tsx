@@ -9,7 +9,7 @@ const NavbarUserCard = (props: {}) => {
   return (
     <UnstyledButton className="block w-full">
       <div
-        className="flex flex-row justify-between items-center gap-3 py-3 px-3 mb-4 bg-gray-300 rounded-xl"
+        className="flex flex-row justify-between items-center gap-3 py-3 px-5 mb-4 bg-gray-300 rounded-xl"
         style={{
           borderTopLeftRadius: radius,
           borderTopRightRadius: radius,
@@ -21,7 +21,7 @@ const NavbarUserCard = (props: {}) => {
 
         <div style={{ flex: 1 }}>
           <Text size="sm" fw={300}>
-            {'Enes'}
+            {'Bibliyomani'}
           </Text>
 
           <Text c="dimmed" size="xs">

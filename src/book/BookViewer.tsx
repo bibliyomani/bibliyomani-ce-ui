@@ -19,6 +19,8 @@ interface Props {
 }
 
 const BookVieweer = ({ metadata: { bookId, read } }: Props) => {
+  console.log(bookId, read);
+
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
   const { height } = useWindowDimensions();
   const availableHeightForViewer = height - 80;
