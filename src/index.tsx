@@ -117,6 +117,8 @@ import './style.css';
 import 'mantine-datatable/styles.layer.css';
 import '@mantine/core/styles.layer.css';
 
+import './layout.css';
+
 axios.defaults.baseURL = process.env.REACT_APP_URL_DEVELOPMENT;
 axios.defaults.headers['Content-Type'] = 'application/json';
 axios.defaults.headers['Accept'] = 'application/json';

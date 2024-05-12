@@ -5,7 +5,7 @@ import BookUploadTable from 'book/BookUploadTable';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Book from 'types/Book';
-import { IconFolder, IconX } from '@tabler/icons';
+import { IconFolder, IconX } from '@tabler/icons-react';
 
 import { toast } from 'sonner';
 
@@ -34,7 +34,7 @@ const BookUploadPage = () => {
       });
 
       history('/');
-    } catch (e) {}
+    } catch (e) { }
   };
 
   if (loading) {
